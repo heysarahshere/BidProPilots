@@ -1,0 +1,20 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    <h1>Alaska Airlines - Delete BidType</h1>
+    <h3>ID: <%=bidTypeId%></h3>
+    <h3>Fleet: <%=fleet%></h3>
+    <h3>Seat: <%=seat%></h3>
+    <h3>Domicile: <%=domicile%></h3>
+    <div>
+        <form action="/alaska-airlines/bidtype/delete" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+            <input type="hidden" name="bidTypeId" value="<%=bidTypeId%>">
+            <p class="lead">Are you sure you want to delete this BidType?</p>
+            <input type="submit" class="btn btn-danger" value="YES">
+            <a href="/alaska-airlines/bidtypes" class="btn btn-primary">NO</a>
+        </form>
+    </div>
+</main>
+
+<%- include("../shared/footer") %>

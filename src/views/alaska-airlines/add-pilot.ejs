@@ -1,0 +1,55 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    <h1>Alaska Airlines - Add Pilot</h1>
+    <section>
+        <form action="/alaska-airlines/pilot/add" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+            <div class="row">
+                <div class="col">
+                    <label for="firstNameInput">First Name:</label>
+                    <input type="text" class="form-control" id="firstNameInput" name="firstNameInput" placeholder="First Name">
+                </div> 
+                <div class="col">
+                    <label for="lastNameInput">Last Name:</label>
+                    <input type="text" class="form-control" id="lastNameInput" name="lastNameInput" placeholder="Last Name">
+                </div>
+                <div class="col">
+                    <label for="emailInput">Email:</label>
+                    <input type="email" class="form-control" id="emailInput" name="emailInput" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="crewIdInput">Crew ID:</label>
+                    <input type="text" class="form-control" id="crewIdInput" name="crewIdInput" placeholder="Crew ID" maxlength="3">
+                </div> 
+                <div class="col">
+                    <label for="hireDateInput">Hire Date:</label>
+                    <input type="date" class="form-control" id="hireDateInput" name="hireDateInput" placeholder="Hire Date">
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="fleetInput">Fleet:</label>
+                    <input type="text" class="form-control" id="fleetInput" name="fleetInput" placeholder="Fleet" maxlength="3">
+                </div> 
+                <div class="col">
+                    <label for="seatInput">Seat:</label>
+                    <input type="text" class="form-control" id="seatInput" name="seatInput" placeholder="Seat" maxlength="3">
+                </div>
+                <div class="col">
+                    <label for="domicileInput">Domicile:</label>
+                    <input type="text" class="form-control" id="domicileInput" name="domicileInput" placeholder="Domicile" maxlength="3">
+                    
+                </div>
+            </div>
+            <div class="row">
+            <input type="submit" class="btn btn-primary m-1" value="Add">
+            <a href="/alaska-airlines/pilots" class="btn btn-danger m-1">Cancel</a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<%- include("../shared/footer") %>

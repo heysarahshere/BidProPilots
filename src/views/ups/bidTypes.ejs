@@ -1,0 +1,122 @@
+<%- include("../shared/header") %>
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setSelectedIndex(document.getElementById('question1'), <%= form.question1 %>);
+});
+</script> -->
+<main class="container">
+    <%if(errors.length > 0) {%>
+        <div class="alert alert-danger">
+            <h2>Please resolve the following errors:</h2>
+            <ul>
+                <%for(var counter = 0; counter < errors.length; counter++){%>
+                    <li>
+                        <%=errors[counter].msg%>
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+        <%}%>
+    <h1>UPS BidTypes (Ethical Hacking Quiz - Validation)</h1>
+    <%if(name.length == 0 || errors.length > 0) {%>
+        <form action="/ups/bidtypes" method="POST" class="mt-3">
+            <div class="form-group">
+                <label for="quizName">Enter name: </label>
+                <input 
+                    type="text" 
+                    id="quizName" 
+                    name="quizName" 
+                    placeholder="Enter name"
+                    value="<%=name%>"
+                 />
+            </div>
+            <!-- question dropdowns -->
+              <div class="form-group">
+                  <label for="question1">1. What is the preferred communications method used with systems on a bot-net?</label>
+                  <select class="form-control" id="question1" name="question1">
+                    <option value=""></option>
+                    <option value="A. IRC">A. IRC</option>
+                    <option value="B. E-mail">B. E-mail</option>
+                    <option value="C. ICMP">C. ICMP</option>
+                    <option value="D. TFTP">D. TFTP</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="question2">2. Which wireless standard can operate at speeds of 100+ Mbps and uses the 2.4GHz to 5GHz range?</label>
+                    <select class="form-control" id="question2" name="question2">
+                        <option value=""></option>
+                      <option value="A. 802.11a">A. 802.11a</option>
+                      <option value="B. 802.11b">B. 802.11b</option>
+                      <option value="C. 802.11g">C. 802.11g</option>
+                      <option value="D. 802.11n">D. 802.11n</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="question3">3. At which layer of the OSI communication model dose bridge operate?</label>
+                      <select class="form-control" id="question3" name="question3">
+                        <option value=""></option>
+                        <option value="A. Transport">A. Transport</option>
+                        <option value="B. Datalink">B. Datalink</option>
+                        <option value="C. Network">C. Network</option>
+                        <option value="D. Physical">D. Physical</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question4">4. What are the forms of password cracking techniques?</label>
+                        <select class="form-control" id="question4" name="question4">
+                            <option value=""></option>
+                          <option value="A. Brute Forcing">A. Brute Forcing</option>
+                          <option value="B. Spidering">B. Spidering</option>
+                          <option value="C. Rainbow Table">C. Rainbow Table</option>
+                          <option value="D. All of the above">D. All of the above</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="question5">5. What is the attack called “evil twin”?</label>
+                          <select class="form-control" id="question5" name="question5">
+                            <option value=""></option>
+                            <option>A. MAC spoofing</option>
+                            <option>B. ARP poisoning</option>
+                            <option value="C. Rogue access point">C. Rogue access point</option>
+                            <option>D. Session hijacking</option>
+                          </select>
+                        </div>
+            <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="hideName" name="hideName">
+                <label class="form-check-label" for="hideName">Hide name on score screen</label>
+              </div>
+        <input type="submit" value="Submit Quiz" class="btn btn-primary"/>
+        </form>
+        
+        <%}%>
+        <%if(name.length > 0 && errors.length == 0) {%>
+        <div class="mt-3">
+            <%if(hideName != "on") {%>
+            <h2><%=name%> scored <%=score%> out of 5.</h2>
+              <%} else{%>
+            <h2>You scored <%=score%> out 5.</h2>
+            <%}%>
+        </div>
+        <a href="/ups/bidtypes" class="btn btn-info">Try Again</a>
+        <%}%>
+</main>
+<script type="text/javascript">
+
+  function setSelectedIndex(s, v) {
+
+      for ( var i = 0; i < s.options.length; i++ ) {
+          if ( s.options[i].text == v ) {
+              s.options[i].selected = true;
+              return;
+          }
+      }
+  }
+  window.onload = setSelectedIndex(document.getElementById('question1'), "<%=form.question1 %>");
+  window.onload = setSelectedIndex(document.getElementById('question2'), "<%=form.question2 %>");
+  window.onload = setSelectedIndex(document.getElementById('question3'), "<%=form.question3 %>");
+  window.onload = setSelectedIndex(document.getElementById('question4'), "<%=form.question4 %>");
+  window.onload = setSelectedIndex(document.getElementById('question5'), "<%=form.question5 %>");
+  </script>
+
+
+<%- include("../shared/footer") %>

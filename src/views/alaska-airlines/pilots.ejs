@@ -1,0 +1,55 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    <h1 class="py-4">Alaska Airlines Pilots<br><a href="/alaska-airlines/pilot/add" class="btn btn-block btn-primary mt-2">Add Pilot</a></h1>
+    
+
+<div class="row ml-0 mr-0 justify-content-start">
+    <%pilots.forEach(pilot => {%>
+            <!-- card here, random image? -->
+        <div class="col-sm-12 col-md-6 col-lg-4 ml-0 mr-0 p-2">
+            <div class="card pt-2 pl-2 bg-white one" style="max-width: 500px;">
+            <div class="row mb-0">
+                <div class="col-sm-4 pt-2">
+                    <img src="/images/pilot.png"  class="card-img-top h-90 rounded-circle image-box" style="border: 0px solid white;" alt="...">
+                     
+                     <div class="overlay">
+                          <i class="fa fa-circle <%=pilot.status == "INACTIVE" ? "inactive-badge" : "active-badge" %>"></i>
+                      </div>
+                     <%=pilot.seat%><br>
+                     <div class="p-0 temp-hidden">
+                     <a style="color: red;" href="/alaska-airlines/pilot/delete/<%=pilot.pilotId%>"><i class="fa fa-minus-circle"></i> Delete</a>
+                     </div> 
+                    
+                </div>
+                <div class="col-sm-8">
+                    <div class="card-body text-left" >
+                        <h5 class="card-title" style="color: #203c58;"><%=pilot.firstName%> <%=pilot.lastName%>
+                            <!-- <p class="float-right font-weight-light" style="font-size: 2px;">Crew ID:</p> -->
+                            <p class="float-right font-weight-light"><%=pilot.crewId%></p>
+                        </h5>
+                      <p class="p-0 font-weight-light" style="line-height: 18px;">
+
+                    <p class="mt-1 mb-0 float-right <%=pilot.status == "INACTIVE" ? "hidden" : "" %>" style="color: dodgerblue;">Active</p>
+                    <p class="mt-1 mb-0 float-right <%=pilot.status == "ACTIVE" ? "hidden" : "" %>" style="color: gray;">Inactive</p>
+<!-- 
+<div class="float-right">
+                      <a href="/alaska-airlines/pilot/status/<%=pilot.pilotId%><%=pilot.status == "ACTIVE" ? "/cancel" : ""%>" class=" float-right btn 
+                        <%=pilot.status == "ACTIVE" ? "btn-danger":"btn-primary" %> btn-sm"> <%=pilot.status === "ACTIVE" ? "Mark Inactive":"Mark Active" %></a>
+</div> -->
+
+                    <span class="fa fa-map-marker"></span> <%=pilot.domicile%> <%=pilot.fleet%><br>Hired <%=pilot.hireDate%> <br><%=pilot.email%></p>
+                        
+
+                       <a href="/alaska-airlines/pilot/status/<%=pilot.pilotId%><%=pilot.status == "ACTIVE" ? "/cancel" : ""%>" class="float-right btn btn-block 
+                        <%=pilot.status == "ACTIVE" ? "btn-danger":"btn-primary" %> btn-sm"> <%=pilot.status === "ACTIVE" ? "Mark Inactive":"Mark Active" %></a> 
+                    </div>
+                </div>
+            </div>
+        </div> 
+       </div>
+    <%});%>    
+</div>
+</main>
+
+<%- include("../shared/footer") %>

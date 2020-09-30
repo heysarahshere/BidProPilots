@@ -1,0 +1,164 @@
+.bg-bidpro {
+    background-color: #83a4c4;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+@media(max-width:767px){
+    .display-3 {
+        font-size: 48px;
+    }
+}
+
+@media(max-width:575px){
+    .jumbotron {
+        margin-top:50px;
+    }
+}
+
+.container div {
+    padding: 4px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    float: none;
+}
+.form-inline > * {
+    margin:5px 3px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#answerBlock div {
+
+    align-content: center;
+    width: 50rem;
+    padding-top: 45px;
+    padding-bottom: 55px;
+    text-align: center;
+    background-color: #e8edef;
+}
+
+.table-container{
+    min-width: 800px;
+}
+
+.flex-table{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: left;
+}
+
+.flex-table:nth-child(odd) .flex-row {
+background-color: #f8f8f8;
+}
+
+.flex-table:first-of-type .flex-row {
+    background-color: #83a4c4;
+    color: white;
+    border-color: black;
+}
+
+
+.flex-row {
+    width:calc(100% / 6);
+    padding: 5px;
+    text-align: left;
+}
+
+.btn-primary {
+    background-color: #83a4c4;
+    border-color: #83a4c4;
+}
+
+
+.btn-lesser {
+    background-color: #8d8d8d;
+    border-color: #8d8d8d;
+}
+
+.week5 {
+    text-align: left;
+    align-content: flex-start;
+  }
+
+  .week5 h1 {
+      padding-top: 10px;
+    text-align: left;
+    align-content: flex-start;
+    font-weight: 700;
+  }
+
+  .week5 .numInput input {
+      width: 12%;
+  }
+
+  .week5 input {
+      height: 2%;
+  }
+
+  .week5 label {
+    font-weight: bold;
+  }
+
+.week5 .btn {
+    border-color: black;
+}
+
+  .week5 p {
+    font-size: medium;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 0px;
+  }
+
+  .hidden{
+      display: none;
+  }
+
+  .one{
+    background-image: -webkit-linear-gradient(90deg, #ffffff 70%, #83a4c45e 30%);
+  }
+
+  .image-box { 
+    position: relative; 
+    width: 100%; /* for IE 6 */
+ }
+ 
+.active-badge { 
+    color: rgb(0, 113, 206);
+    font-size: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+ }
+
+ .inactive-badge { 
+    color: rgb(184, 0, 0);
+    font-size: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+ }
+
+ div .temp-hidden {
+    display: none;
+}
+
+.one:hover .temp-hidden {
+    display: inline-block;
+}

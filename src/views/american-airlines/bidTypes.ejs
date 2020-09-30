@@ -1,0 +1,51 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    <%if(errors.length > 0) {%>
+        <div class="alert alert-danger">
+            <h2>Please resolve the following errors:</h2>
+            <ul>
+                <%for(var counter = 0; counter < errors.length; counter++){%>
+                    <li>
+                        <%=errors[counter].msg%>
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+        <%}%>
+    <h1>American Airlines BidTypes (Hello Name - Validation) </h1>    
+    <%if(name.length == 0 || errors.length > 0) {%>
+        <form action="/american-airlines/bidtypes" method="POST" class="mt-3">
+            <div class="form-group">
+                <label for="helloName">Enter name: </label>
+                <input 
+                    type="text" 
+                    id="helloName" 
+                    name="helloName" 
+                    placeholder="Enter name"
+                 />
+            </div>
+            <div class="form-group">
+                
+                <label for="numOfTimes">Enter number: </label>
+                <input 
+                    type="text" 
+                    id="numOfTimes" 
+                    name="numOfTimes" 
+                    placeholder="Enter number"
+                 />
+            </div>
+            <input type="submit" value="Display" class="btn btn-primary"/>
+        </form>
+        <%}%>
+        <%if(name.length > 0 && errors.length == 0) {%>
+        <div class="mt-3">
+            <%for(let counter = 0; counter < numOfTimes; counter++){%>
+                <h2><%=counter + 1%>. Hello <%=name%></h2>
+                <%}%>
+        </div>
+        <a href="/american-airlines/bidtypes" class="btn btn-info">Start Over</a>
+        <%}%>
+</main>
+
+<%- include("../shared/footer") %>

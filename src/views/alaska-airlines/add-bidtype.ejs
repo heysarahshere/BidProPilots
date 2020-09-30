@@ -1,0 +1,31 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    <h1>Alaska Airlines - Add BidType</h1>
+    <section>
+        <form action="/alaska-airlines/bidtype/add" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+            <div class="row">
+                <div class="col">
+                    <label for="fleetInput">Fleet:</label>
+                    <input type="text" class="form-control" id="fleetInput" name="fleetInput" placeholder="Fleet" maxlength="3">
+                </div> 
+                <div class="col">
+                    <label for="fleetInput">Seat:</label>
+                    <input type="text" class="form-control" id="seatInput" name="seatInput" placeholder="Seat" maxlength="3">
+                </div>
+                <div class="col">
+                    <label for="domicileInput">Domicile:</label>
+                    <input type="text" class="form-control" id="domicileInput" name="domicileInput" placeholder="Domicile" maxlength="3">
+                    
+                </div>
+            </div>
+            <div class="row">
+            <input type="submit" class="btn btn-primary m-1" value="Add">
+            <a href="/alaska-airlines/bitypes" class="btn btn-danger m-1">Cancel</a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<%- include("../shared/footer") %>

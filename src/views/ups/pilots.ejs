@@ -1,0 +1,80 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+        <!-- errors -->
+    <%if(errors.length > 0) {%>
+        <div class="alert alert-danger mt-2">
+            <h2>Please resolve the following errors:</h2>
+            <ul>
+                <%for(var counter = 0; counter < errors.length; counter++){%>
+                    <li>
+                        <%=errors[counter].msg%>
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+        <%}%>
+        <h1 class="mt-3">Simple Math Calculator</h1>
+        <div class="container">
+            <div class="row">
+                <form action="/ups/pilots" method="POST">
+                    <div class="form-inline">
+                        <input type="text"
+                               class="form-control col-3"
+                               id="firstNumber"
+                               name="firstNumber"
+                               placeholder="First Number"
+                               value="<%=firstNumber%>"
+                        />
+    
+                        <select class="custom-select col-3"
+                                id="operatorChoice"
+                                name="operatorChoice">
+                            <option value="+">Addition (+)</option>
+                            <option value="-">Subtraction (-)</option>
+                            <option value="*">Multiplication (*)</option>
+                            <option value="/">Division (/)</option>
+                        </select>
+    
+                        <input type="text"
+                               class="form-control  col-3"
+                               id="secondNumber"
+                               name="secondNumber"
+                               placeholder="Second Number"
+                               value="<%=secondNumber%>"
+                        />
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                            <a href="" class="btn btn-danger">Clear</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    <%if(answer != "" && errors.length == 0) {%>
+        <div class="container" id="answerBlock">
+            <div class="col-6">
+                <h1><%=answer%></h1>
+                <h2>The answer to <%=firstNumber%> <%=operatorChoice%> <%=secondNumber%></h2>
+            </div>
+        </div>
+     <%}%>
+</main>
+<script type="text/javascript">
+
+    function setSelectedIndex(s, v) {
+  
+        for ( var i = 0; i < s.options.length; i++ ) {
+            if ( s.options[i].value == v ) {
+                s.options[i].selected = true;
+                return;
+            }
+        }
+    }
+    window.onload = setSelectedIndex(document.getElementById('operatorChoice'), "<%=operatorChoice%>");
+    </script>
+
+<%- include("../shared/footer") %>

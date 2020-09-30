@@ -1,0 +1,89 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    <h1>Jetsuite BidTypes (Ethical Hacking Quiz - No Validation)</h1>
+    <%if(name.length == 0) {%>
+        <form action="/jetsuite/bidtypes" method="POST" class="mt-3">
+            <div class="form-group">
+                <label for="quizName">Enter name: </label>
+                <input 
+                    type="text" 
+                    id="quizName" 
+                    name="quizName" 
+                    placeholder="Enter name"
+                 />
+            </div>
+            <!-- question dropdowns -->
+              <div class="form-group">
+                  <label for="question1">1. What is the preferred communications method used with systems on a bot-net?</label>
+                  <select class="form-control" id="question1" name="question1">
+                    <option value="correct">A. IRC</option>
+                    <option>B. E-mail</option>
+                    <option>C. ICMP</option>
+                    <option>D. TFTP</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="question2">2. Which wireless standard can operate at speeds of 100+ Mbps and uses the 2.4GHz to 5GHz range?</label>
+                    <select class="form-control" id="question2" name="question2">
+                      <option>A. 802.11a</option>
+                      <option>B. 802.11b</option>
+                      <option>C. 802.11g</option>
+                      <option value="correct">D. 802.11n</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="question3">3. At which layer of the OSI communication model dose bridge operate?</label>
+                      <select class="form-control" id="question3" name="question3">
+                        <option>A. Transport</option>
+                        <option value="correct">B. Datalink</option>
+                        <option>C. Network</option>
+                        <option>D. Physical</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="question4">4. What are the forms of password cracking techniques?</label>
+                        <select class="form-control" id="question4" name="question4">
+                          <option>A. Brute Forcing</option>
+                          <option>B. Spidering</option>
+                          <option>C. Rainbow Table</option>
+                          <option value="correct">D. All of the above</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="question5">5. What is the attack called “evil twin”?</label>
+                          <select class="form-control" id="question5" name="question5">
+                            <option>A. MAC spoofing</option>
+                            <option>B. ARP poisoning</option>
+                            <option value="correct">C. Rogue access point</option>
+                            <option>D. Session hijacking</option>
+                          </select>
+                        </div>
+
+            <!-- hide name checkbox -->
+            <!-- <div class="btn-group-toggle mb-2" data-toggle="buttons">
+                <label class="btn btn-info">
+                  <input type="checkbox" id="hideName" name="hideName"> Hide Name
+                </label>
+            </div>  -->
+            <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="hideName" name="hideName">
+                <label class="form-check-label" for="hideName">Hide name on score screen</label>
+              </div>
+        <input type="submit" value="Submit Quiz" class="btn btn-primary"/>
+        </form>
+        
+        <%}%>
+        <%if(name.length > 0) {%>
+        <div class="mt-3">
+            <%if(hideName != "on") {%>
+            <h2><%=name%> scored <%=score%> out of 5.</h2>
+              <%} else{%>
+            <h2>You scored <%=score%> out 5.</h2>
+            <%}%>
+        </div>
+        <a href="/jetsuite/bidtypes" class="btn btn-info">Try Again</a>
+        <%}%>
+</main>
+
+<%- include("../shared/footer") %>

@@ -1,0 +1,35 @@
+<%- include("../shared/header") %>
+
+<main class="container">
+    
+    <h1>Alaska Airlines BidTypes</h1>
+    <section class="table-container">
+        <div class="flex-table header">
+            <div class="flex-row d-flex justify-content-center align-items-center">ID</div>
+            <div class="flex-row d-flex justify-content-center align-items-center">Bid Types</div>
+            <div class="flex-row d-flex justify-content-center align-items-center">Status</div>
+            <div class="flex-row d-flex justify-content-center align-items-center">#Bid Periods</div>
+            <div class="flex-row d-flex justify-content-center align-items-center">Imported</div>
+            <div class="flex-row d-flex justify-content-center align-items-center"><a href="/alaska-airlines/bidtype/add" class="btn btn-link text-light">Add</a></div>
+            
+        </div>
+        <%bidTypes.forEach(bidType => {%>
+            <div class="flex-table table-row">
+            <div class="flex-row d-flex justify-content-center align-items-center"><%=bidType.bidTypeId%></div>
+            <div class="flex-row d-flex justify-content-center align-items-center"><%=bidType.seat%> <%=bidType.domicile%> <%=bidType.fleet%></div>
+            <div class="flex-row d-flex justify-content-center align-items-center"><%=bidType.status%></div>
+            <div class="flex-row d-flex justify-content-center align-items-center">0</div>
+            <div class="flex-row d-flex justify-content-center align-items-center"><%=bidType.imported%></div>
+            <div class="flex-row">
+                <a href="/alaska-airlines/bidtype/import/<%=bidType.bidTypeId%><%=bidType.status == "IMPORTING" ? "/cancel" : ""%>" class="btn btn-block  <%=bidType.status == "IMPORTING" ? "btn-danger":"btn-primary" %>">
+                    <%=bidType.status == "IMPORTING" ? "Cancel Import":"Import" %>
+                </a>
+                <a href="/alaska-airlines/bidtype/delete/<%=bidType.bidTypeId%>" class="btn btn-block btn-danger <%=bidType.status === "IMPORTING" ? "hidden":"" %>">Delete</a>
+            </div>
+        </div>
+        <%});%> 
+
+    </section>
+</main>
+
+<%- include("../shared/footer") %>
